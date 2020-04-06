@@ -19,7 +19,7 @@ node{
 
 
 	stage ('Checkout source'){
-       checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'BitbucketCredentials', url: 'https://HK014@bitbucket.org/HK014/tdksoft-azure-cloud.git']]])
+       checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'BitbucketCredentials', url: 'https://github.com/Tass21/game-of-life.git']]])
 	}
 
 	stage ('Test'){
