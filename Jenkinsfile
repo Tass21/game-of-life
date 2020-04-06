@@ -17,17 +17,9 @@ properties(projectProperties)
 
 node{
 
-  stage('Clean workspace') {
-        /* Running on a fresh Docker instance makes this redundant, but just in
-        * case the host isn't configured to give us a new Docker image for every
-        * build, make sure we clean things before we do anything
-        */
-        deleteDir()
-        sh 'ls -lah'
-    }
 
-	stage ('Build'){
-	  echo 'Building'
+	stage ('Checkout source'){
+       checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'BitbucketCredentials', url: 'https://HK014@bitbucket.org/HK014/tdksoft-azure-cloud.git']]])
 	}
 
 	stage ('Test'){
